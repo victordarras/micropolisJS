@@ -2,55 +2,69 @@
   background-color: red;
   color: yellow;
 }
+
 .canvasWidth {
   width: 600px;
   margin: auto;
 }
+
 .splashWidth {
   width: 400px;
   margin: auto;
 }
+
 .clr {
   clear: both;
 }
+
 .modalHeader {
   padding: 5px;
   margin: 5px;
 }
+
 .good {
   background-color: LightGreen;
   color: black;
 }
+
 .info {
   width: 20%;
   text-align: centre;
 }
+
 .left {
   float: left;
 }
+
 .right {
   float: right;
 }
+
 .neutral {
   background-color: white;
   color: black;
 }
+
 .row {
   display: table-row;
 }
+
 .col {
   display: table-cell;
 }
+
 .links {
   float: right;
 }
-.awaitGeneration,
-.hidden {
+
+.awaitGeneration, .hidden {
   display: none;
 }
+
 .table {
   display: table;
 }
+
 .toolButton {
   width: 140px;
   margin-left: 5px;
@@ -61,12 +75,15 @@
   font-family: sans-serif;
   font-size: 12px;
 }
+
 .miscButton {
   width: 100px;
 }
+
 .initialHidden {
   display: none;
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -82,18 +99,22 @@
   font-size: large;
   width: 500px;
 }
+
 .splashButton {
   width: 100px;
   margin: auto;
   border: none;
   cursor: pointer;
 }
+
 .selected {
   font-weight: bold;
 }
+
 .unselected {
   font-weight: normal;
 }
+
 #header {
   text-align: center;
   width: 600px;
@@ -103,114 +124,140 @@
   padding-bottom: 20px;
   color: seagreen;
 }
+
 #appeal {
   border: 1px solid gray;
   padding: 10px;
   font-size: 12px;
 }
+
 #appeal h2 {
   color: yellow;
 }
-#budgetRequest,
-#budgetHeader {
+
+#budgetRequest, #budgetHeader {
   background-color: dodgerblue;
   border: none;
   color: white;
 }
+// All inGame buttons
 #residentialButton {
   background-color: lime;
 }
+
 #policeButton {
   background-color: darkblue;
   color: white;
 }
+
 #coalButton {
   background-color: gray;
 }
+
 #wireButton {
   background-color: khaki;
 }
+
 #commercialButton {
   background-color: blue;
   color: white;
 }
+
 #fireButton {
   background-color: red;
 }
+
 #nuclearButton {
   background-color: mistyrose;
 }
+
 #roadButton {
   background-color: black;
   color: white;
 }
+
 #industrialButton {
   background-color: yellow;
 }
+
 #portButton {
-  background-color: dodgerblue;
-  color: white;
+ background-color: dodgerblue;
+ color: white;
 }
+
 #stadiumButton {
   background-color: indigo;
   color: white;
 }
+
 #railButton {
   background-color: brown;
   color: white;
 }
+
 #parkButton {
   background-color: darkgreen;
   color: white;
 }
+
 #airportButton {
   background-color: violet;
 }
+
 #queryButton {
   background-color: cyan;
 }
+
 #bulldozerButton {
   background-color: salmon;
 }
+
 #buttons {
   display: table;
 }
-#disasterRequest,
-#disasterHeader {
+
+#disasterRequest, #disasterHeader {
   background-color: red;
   color: yellow;
 }
-#evalRequest,
-#evalHeader {
+
+#evalRequest, #evalHeader {
   background-color: forestgreen;
   border: none;
   color: white;
 }
+
 #queryHeader {
   background-color: cyan;
 }
+
 #infobar {
   background-color: silver;
 }
+
 #miscControls {
   padding: 5px;
   width: 340px;
   margin: auto;
 }
+
 #miscButtons {
   margin-top: 10px;
 }
+
 #miscButtons button {
   margin: 5px;
   border: none;
   cursor: pointer;
 }
+
 #notifications {
   border: 1px solid black;
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 #opaque {
   position: fixed;
   top: 0;
@@ -218,21 +265,24 @@
   bottom: 0;
   right: 0;
   opacity: .80;
-  filter: alpha(opacity=80);
-  background-color: #eeeeee;
+  filter: Alpha(Opacity=80); 
+  background-color: rgb(238, 238, 238);
   background-repeat: repeat-x;
   background-attachment: scroll;
   background-position: 50% 50%;
   z-index: 10;
 }
+
 #pauseRequest {
   background-color: lightgray;
   border: none;
   color: black;
 }
+
 #rightButtons {
   float: right;
 }
+
 #canvasContainer {
   width: 600px;
   height: 400px;
@@ -240,31 +290,39 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 #container {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
+
 #disasterLabel {
   font-size: smaller;
 }
+
 #splashContainer {
   text-align: centre;
 }
+
 #splashGenerate {
   background-color: dodgerBlue;
-  color: #ffffff;
+  color: white
 }
+
 #splashPlay {
   background-color: lightgreen;
 }
+
 #splashButtons {
   width: 250px;
   margin: auto;
 }
+
 #difficulties {
   margin-top: 10px;
 }
+
 #RCIContainer {
   width: 140px;
   height: 140px;
@@ -273,20 +331,31 @@
   background-color: white;
   border: 1px solid black;
 }
+
 #toolInfo {
   text-align: center;
 }
+
 /*##############################################################*/
-* {
+
+
+@green: #3fc85b;
+@blue: #448cc0;
+@yellow: #ffd65a;
+
+
+* {  
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 html {
   margin: 0;
   padding: 0;
 }
+
 body {
   background: #f2f2f2;
   color: #333;
@@ -294,9 +363,11 @@ body {
   font-size: 14px;
   margin: 0;
 }
+
 a {
-  color: #448cc0;
+  color: @blue;
 }
+
 .links {
   display: block;
   font-size: 0.9em;
@@ -307,10 +378,11 @@ a {
 #container {
   max-width: 800px;
 }
+
 #header {
   border-bottom: 1px solid #ddd
   ;
-  color: #448cc0;
+  color: @blue;
   margin: auto;
   margin-bottom: 1em;
   max-width: 800px;
@@ -318,6 +390,7 @@ a {
   position: relative;
   width: 100%;
 }
+
 #infobar {
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -325,33 +398,38 @@ a {
   border-top: 1px solid  #d5d5d5;
   padding: 0.4em 0.8em;
 }
+
 #notifications {
-  background: #ffd65a;
-  border: 1px solid #ffc927;
+  background: @yellow;
+  border: 1px solid darken(@yellow, 10);
   border-radius: 2px;
-  color: #5a4400;
-  font-family: 'Source Code Pro', 'Consolas', sans-serif;
+  color: darken(@yellow, 50);
+  font-family: 'Source Code Pro','Consolas', sans-serif;
   padding: 0.4em 0.8em;
 }
+
 #title {
   text-align: left;
 }
+
 #appeal {
   background: #fff;
   border-bottom-width: 3px;
-  border-color: #3fc85b;
+  border-color: @green;
   border-radius: 3px;
   padding: 1em 3em;
+  a {
+    color: @green;
+  }
+  h2 {
+    color: @green;
+  }
 }
-#appeal a {
-  color: #3fc85b;
-}
-#appeal h2 {
-  color: #3fc85b;
-}
+
 #buttons button {
   border: 0;
   border-radius: 2px;
   margin-bottom: 5px;
   padding: 0.5em 0.8em;
 }
+
