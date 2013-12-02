@@ -1,23 +1,190 @@
 @green: #3fc85b;
 @blue: #448cc0;
 @yellow: #ffd65a;
+@backgroundColor: #333;
+@canvasWidth: 360px;
 
+@import "mixins.less";
 /*###########*/
 
+* {  
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: @backgroundColor;
+  //background-image: url(http://1.bp.blogspot.com/-xYZb1ZWZ9zU/T7mtRXTEvKI/AAAAAAAAAFg/UIRrh2rK5h4/s1600/simcity_snes-art-of-sound.jpg);
+  background-size: cover;
+  color: #eee;
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+a {
+  color: @blue;
+}
+
+hr {
+  border-top: darken(@backgroundColor, 15);
+  border-bottom: lighten(@backgroundColor, 10);
+}
+
+.links {
+  display: block;
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 2em;  
+  float: right;
+  a {
+    .button(@backgroundColor);
+    color: #777;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.9);
+    margin: 0.1em;
+    padding: 0.4em 0.9em;
+    border: 1px solid darken(@backgroundColor, 15);
+    border-radius: 4px;
+    box-shadow: 
+      inset 0 -1px 2px rgba(255,255,255,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      0 1px 0 rgba(255,255,255,0.05);
+    text-decoration: none;
+    transition: all 0.1s;
+    &:hover {
+      color: #ccc;
+      box-shadow: 
+        inset 0 -1px 5px rgba(255,255,255,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 1px 0 rgba(255,255,255,0.05);
+    }
+    &:active {
+      color: #fff;
+      box-shadow: inset 0 2px 1px rgba(0,0,0,0.3);
+    }
+  }
+}
+#container {
+  max-width: 1200px;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+#header {
+  text-align: center;
+  background: darken(@backgroundColor, 5);
+  border-bottom: 1px solid lighten(@backgroundColor, 5);
+  color: @blue;
+  margin: auto;
+  min-height: 6em;
+  padding: 0 2em 0;
+  position: relative;
+  width: 100%;  
+}
+#infobar {
+  background: darken(@backgroundColor, 10);
+  border: 1px solid darken(@backgroundColor, 20);
+  border-radius: 4px;
+  border-top: 1px solid  darken(@backgroundColor, 25);
+  padding: 0.4em 0.8em;
+}
+
+#notifications {
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: @yellow;
+  border: 1px solid darken(@yellow, 10);
+  border-radius: 2px;
+  color: darken(@yellow, 50);
+  font-family: 'Source Code Pro','Consolas', sans-serif;
+}
+
+#title {
+  float: left;
+  font-family: 'consolas';
+}
+
+#appeal {
+  background: #fff;
+  border-bottom-width: 3px;
+  border: 1px solid @green;
+  border-radius: 3px;
+  padding: 1em 3em;
+  font-size: 12px;
+  a {
+    color: @green;
+  }
+  h2 {
+    color: @green;
+  }
+}
+
+#difficulties {  
+  vertical-align: top;
+  max-width: @canvasWidth;
+  text-align: centre;
+  margin: 1em auto;
+  border: 1px solid darken(@backgroundColor, 20);
+  background: darken(@backgroundColor, 2);
+  padding: 2em 2em 2em;
+  text-align: center;
+  legend {
+    padding: 0.3em 0.5em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  }
+  label {
+    .button(#333);
+    margin: 0.5em;
+  }
+  input[type="radio"] {  
+    position: fixed;
+    opacity: 0;
+  }
+  input[type='radio']:checked + label {
+    .button(#111);
+  }
+}
+
+
+#splashButtons {
+  vertical-align: top;
+  margin: 1em auto;
+  text-align: centre;
+  .splashButton {
+    width: 174px;
+    margin: 0.5em;
+  }
+}
+
+#splashGenerate {  
+  .button(@green)
+}
+
+#splashPlay {
+  .button(@blue)
+}
+
+.canvasWidth {
+  width: @canvasWidth;
+  margin: auto;
+}
+
+// #######################################
 .bad {
   background-color: red;
   color: yellow;
 }
 
-.canvasWidth {
-  width: 600px;
-  margin: auto;
-}
-
-.splashWidth {
-  width: 400px;
-  margin: auto;
-}
 
 .clr {
   clear: both;
@@ -57,10 +224,6 @@
 
 .col {
   display: table-cell;
-}
-
-.links {
-  float: right;
 }
 
 .awaitGeneration, .hidden {
@@ -121,26 +284,6 @@
   font-weight: normal;
 }
 
-#header {
-  text-align: center;
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  color: seagreen;
-}
-
-#appeal {
-  border: 1px solid gray;
-  padding: 10px;
-  font-size: 12px;
-}
-
-#appeal h2 {
-  color: yellow;
-}
-
 #budgetRequest, #budgetHeader {
   background-color: dodgerblue;
   border: none;
@@ -159,6 +302,10 @@
   padding: 0.5em 0.8em;
 }
 
+
+#buttons {
+  display: table;
+}
 
 #residentialButton {
   .button(lime);
@@ -225,10 +372,6 @@
   .button(salmon);  
 }
 
-#buttons {
-  display: table;
-}
-
 #disasterRequest, #disasterHeader {
   background-color: red;
   color: yellow;
@@ -241,10 +384,6 @@
 
 #queryHeader {
   background-color: cyan;
-}
-
-#infobar {
-  background-color: silver;
 }
 
 #miscControls {
@@ -261,13 +400,6 @@
   margin: 5px;
   border: none;
   cursor: pointer;
-}
-
-#notifications {
-  border: 1px solid black;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 #opaque {
@@ -303,75 +435,8 @@
   margin-bottom: 20px;
 }
 
-#container {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #disasterLabel {
   font-size: smaller;
-}
-
-#splashContainer {
-  text-align: centre;
-}
-
-.button(@color){
-  background: @color;
-  background: linear-gradient(@color,darken(@color,10));
-  border: 1px solid darken(@color,15);
-  border-radius: 3px;
-  padding: 6px 12px;
-  width: auto;
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-  //transition: all 0.2s;
-  &:hover, &:focus {
-    outline: none;
-    background: lighten(@color,5);
-  }
-  &:active {
-    background: darken(@color,5);
-  }
-}
-
-#splashGenerate {  
-  .button(@blue)
-}
-
-#splashPlay {
-  .button(@green)
-}
-
-#splashButtons {
-  width: 250px;
-  margin: auto;
-}
-
-#difficulties {
-  margin-top: 10px;
-  border: 1px solid #CCC;
-  background: #FFF;
-  padding: 2em 2em 2em;
-  label {        
-    display: block;
-    position: relative;
-    padding: 0.5em 1em;
-    margin: 0;
-    background: #eee;
-    border: 1px solid #ccc;
-    margin-bottom: -1px;
-  }
-  input[type="radio"] {    
-    text-align: right;
-    position: absolute;
-    right: 0.4em;
-    top: 0.4em;
-  }
-  input[type='radio']:checked {
-    background: blue;
-  }
 }
 
 #RCIContainer {
@@ -388,87 +453,3 @@
 }
 
 /*##############################################################*/
-
-* {  
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #f2f2f2;
-  background-image: url(http://1.bp.blogspot.com/-xYZb1ZWZ9zU/T7mtRXTEvKI/AAAAAAAAAFg/UIRrh2rK5h4/s1600/simcity_snes-art-of-sound.jpg);
-  background-size: cover;
-  color: #333;
-  font-family: 'Lato', Arial, sans-serif;
-  font-size: 14px;
-  margin: 0;
-}
-
-a {
-  color: @blue;
-}
-
-.links {
-  display: block;
-  font-size: 0.9em;
-  position: absolute;
-  text-align: center;
-  top: 0.2em;
-}
-#container {
-  max-width: 800px;
-}
-
-#header {
-  border-bottom: 1px solid #ddd
-  ;
-  color: @blue;
-  margin: auto;
-  margin-bottom: 1em;
-  max-width: 800px;
-  padding: 1em 2em 0.5em;
-  position: relative;
-  width: 100%;
-}
-
-#infobar {
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 1em;
-  border-top: 1px solid  #d5d5d5;
-  padding: 0.4em 0.8em;
-}
-
-#notifications {
-  background: @yellow;
-  border: 1px solid darken(@yellow, 10);
-  border-radius: 2px;
-  color: darken(@yellow, 50);
-  font-family: 'Source Code Pro','Consolas', sans-serif;
-  padding: 0.4em 0.8em;
-}
-
-#title {
-  text-align: left;
-}
-
-#appeal {
-  background: #fff;
-  border-bottom-width: 3px;
-  border-color: @green;
-  border-radius: 3px;
-  padding: 1em 3em;
-  a {
-    color: @green;
-  }
-  h2 {
-    color: @green;
-  }
-}

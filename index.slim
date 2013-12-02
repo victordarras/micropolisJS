@@ -1,14 +1,9 @@
 DOCTYPE 5 
-
-!--
- * micropolisJS. Adapted from Micropolis by Graeme McCutcheon.
- *
- * This code is released under the GNU GPL v3, with some additional terms.
- * Please see the files LICENSE and COPYING for details. Alternatively,
- * consult http://micropolisjs.graememcc.co.uk/LICENSE and
- * http://micropolisjs.graememcc.co.uk/COPYING
- *
- * -- 
+/ micropolisJS. Adapted from Micropolis by Graeme McCutcheon.
+/ This code is released under the GNU GPL v3, with some additional terms.
+/ Please see the files LICENSE and COPYING for details. Alternatively,
+/ consult http://micropolisjs.graememcc.co.uk/LICENSE and
+/ http://micropolisjs.graememcc.co.uk/COPYING
 
 html 
   head 
@@ -23,7 +18,8 @@ html
     div id='header' 
       h1 id="title" micropolisJS
       div class="links" 
-        a href="about.html" About | a href="participate.html" Get Involved
+        a href="about.html"  About 
+        a href="participate.html" Get Involved
       
     
     div id="container" 
@@ -32,44 +28,37 @@ html
           span id="date" Jan 1900
         
         div class="col info initialHidden" 
-          $span id="funds" 20000
+          span id="funds" $ 20000
         
         div class="col info initialHidden" 
           Score: span id="score" 0
         
         div class="col info initialHidden" 
-          span id="cclass" VILLAGE
-          (
-          span id="population" 0
-          )
+          span id="cclass" VILLAGE (<span id="population">0</>)
         
       
       div class="splashWidth" id="splashContainer" 
-         div id="SplashCanvas" 
-           Loading...
          
-          div class="awaitGeneration" id="splashButtons" 
-           button class="splashButton" id="splashGenerate" Generate new map
-           button class="splashButton" id="splashPlay" Play this map
-         
-         fieldset class="awaitGeneration" id="difficulties" 
-           legend Difficulty           
-           label Easy
-            input type="radio" name="difficulty" value="0" checked="checked" 
-           
-           label Medium
-            input type="radio" name="difficulty" value="1" 
-           
-           label Hard
-            input type="radio" name="difficulty" value="2" 
-           
-         
+        fieldset class="awaitGeneration" id="difficulties" 
+          legend Difficulty    
+          input#easy type="radio" name="difficulty" value="0" checked="checked"        
+          label for="easy" Easy
+          input#medium type="radio" name="difficulty" value="1"
+          label for="medium" Medium
+          input#hard type="radio" name="difficulty" value="2" 
+          label for="hard" Hard
+
+        div id="SplashCanvas" Loading...
+
+        div class="awaitGeneration" id="splashButtons" 
+          button class="splashButton" id="splashGenerate" Generate new map
+          button class="splashButton" id="splashPlay" Play this map
       
       div id="canvasContainer" 
         div id="MicropolisCanvas" 
-        
       
-      div id="toolInfo" class="initialHidden canvasWidth" span id="toolOutput" &nbsp;
+      div id="toolInfo" class="initialHidden canvasWidth" 
+        span id="toolOutput" &nbsp;
       div id="notifications" class="initialHidden canvasWidth" 
       div id="buttons" class="canvasWidth initialHidden" 
         div id="row1" class="row" 
@@ -112,15 +101,12 @@ html
             
             div class="row" 
               button id="pauseRequest" class="miscButton" Pause
-            
-          
-        
-        div class="clr" 
+
+        .clr 
       
     
     div class="hidden modal" id="budget" 
-      div id="budgetHeader" class="modalHeader" 
-         Budget
+      div id="budgetHeader" class="modalHeader" Budget
       
       form id="budgetForm" 
         div 
@@ -130,10 +116,7 @@ html
             input type="range" id="roadRate" min="0" max="100" step="1" data-source="roadFund" 
             div 
               label for="roadRate" id="roadRateLabel" 100% of $100 = $100
-            
-          
-        
-        div class="clr" 
+        .clr 
         div 
           div id="cashInfo" class="left" Cashflow: span id="cashFlow" 
           fieldset class="right" 
@@ -141,10 +124,7 @@ html
             input type="range" id="fireRate" min="0" max="100" step="1" data-source="fireFund" 
             div 
               label for="fireRate" id="fireRateLabel" 100% of $100 = $100
-            
-          
-        
-        div class="clr" 
+        .clr 
         div 
           div id="previousInfo" class="left" Previous funds: span id="previousFunds" 
           fieldset class="right" 
@@ -152,10 +132,7 @@ html
             input type="range" id="policeRate" min="0" max="100" step="1" data-source="policeFund" 
             div 
               label for="policeRate" id="policeRateLabel" 100% of $100 = $100
-            
-          
-        
-        div class="clr" 
+        .clr
         div 
           div id="currentInfo" class="left" Current funds: span id="currentFunds" 
           fieldset class="right" 
@@ -163,10 +140,7 @@ html
             input type="range" id="taxRate" min="0" max="20" step="1" 
             div 
               label for="taxRate" id="taxRateLabel" 100% of $100 = $100
-            
-          
-        
-        div class="clr" 
+        .clr 
         div 
           div id="leftButtons" class="left" 
             button id="budgetReset" Reset
@@ -174,104 +148,131 @@ html
           div id="budgetRightButtons" class="right" 
             button id="budgetCancel" class="rightButtons" Cancel
             input type="submit" id="budgetOK" class="rightButtons" value="OK" 
-          
-          div class="clr" 
+          .clr
         
       
     
     div class="hidden modal" id="queryWindow" 
-      div id="queryHeader" class="modalHeader" 
-         Query
+      div id="queryHeader" class="modalHeader" Query
       
       div id="queryDebug" class="hidden" 
         pre 
-        Tile: span id="queryTile" 
-        TileValue: span id="queryTileValue" 
-        Burnable: span id="queryTileBurnable" 
-        Bulldozable: span id="queryTileBulldozable" 
-        Conductive: span id="queryTileCond" 
-        Animated: span id="queryTileAnim" 
-        Powered: span id="queryTilePowered" 
-        FireStation: span id="queryFireStationRaw" 
-        FireStationEffect: span id="queryFireStationEffectRaw" 
-        PoliceStation: span id="queryPoliceStationRaw" 
-        PoliceStationEffect: span id="queryPoliceStationEffectRaw" 
-        TerrainDensity: span id="queryTerrainDensityRaw" 
-        ComRate: span id="queryComRateRaw" 
-        RateOfGrowth: span id="queryRateRaw" 
-        Pollution: span id="queryPollutionRaw" 
-        Crime: span id="queryCrimeRaw" 
-        LandValue: span id="queryLandValueRaw" 
-        Traffic Density: span id="queryTrafficDensityRaw" 
-        Density: span id="queryDensityRaw" 
+          | Tile: 
+          span id="queryTile" 
+          | TileValue: 
+          span id="queryTileValue" 
+          | Burnable: 
+          span id="queryTileBurnable" 
+          | Bulldozable: 
+          span id="queryTileBulldozable" 
+          | Conductive: 
+          span id="queryTileCond" 
+          | Animated: 
+          span id="queryTileAnim" 
+          | Powered: 
+          span id="queryTilePowered" 
+          | FireStation: 
+          span id="queryFireStationRaw" 
+          | FireStationEffect: 
+          span id="queryFireStationEffectRaw" 
+          | PoliceStation: 
+          span id="queryPoliceStationRaw" 
+          | PoliceStationEffect: 
+          span id="queryPoliceStationEffectRaw" 
+          | TerrainDensity: 
+          span id="queryTerrainDensityRaw" 
+          | ComRate: 
+          span id="queryComRateRaw" 
+          | RateOfGrowth: 
+          span id="queryRateRaw" 
+          | Pollution: 
+          span id="queryPollutionRaw" 
+          | Crime: 
+          span id="queryCrimeRaw" 
+          | LandValue: 
+          span id="queryLandValueRaw" 
+          | Traffic Density: 
+          span id="queryTrafficDensityRaw" 
+          | Density: 
+          span id="queryDensityRaw" 
         
       
       pre 
-        Zone: span id="queryZoneType" 
-        Density: span id="queryDensity" 
-        Value: span id="queryLandValue" 
-        Crime: span id="queryCrime" 
-        Pollution: span id="queryPollution" 
-        Growth: span id="queryRate" 
+        | Zone: 
+        span id="queryZoneType" 
+        | Density: 
+        span id="queryDensity" 
+        | Value: 
+        span id="queryLandValue" 
+        | Crime: 
+        span id="queryCrime" 
+        | Pollution: 
+        span id="queryPollution" 
+        | Growth: 
+        span id="queryRate" 
       
       div class="right" 
         form id="queryForm" 
           input type="submit" id="queryOK" class="rightButtons" value="OK" 
-        
-      
-      div class="clr" 
+      .clr 
     
     div class="hidden modal" id="evalWindow" 
-      div id="evalHeader" class="modalHeader" 
-         Evaluation
+      div id="evalHeader" class="modalHeader" Evaluation
       
       pre 
-      Public opinion:
-        Is the mayor doing a good job?:
-          Yes: span id="evalYes"  No: span id="evalNo" 
-        What are the worst problems?
-          span id="evalProb1"  span id="evalProb2" 
-          span id="evalProb3"  span id="evalProb4" 
+        | Public opinion:
+        | Is the mayor doing a good job?:
+        | Yes: 
+        span id="evalYes"  
+        | No: 
+        span id="evalNo" 
+        | What are the worst problems?          
+        span id="evalProb1"  
+        span id="evalProb2"           
+        span id="evalProb3"  
+        span id="evalProb4" 
 
-      Statistics:
-        Population: span id="evalPopulation" 
-        Net Migration: span id="evalMigration" 
-        Assessed Value: span id="evalValue" 
-        Category: span id="evalClass" 
-        Game Level: span id="evalLevel" 
-        Score: span id="evalScore" 
-        Annual change: span id="evalScoreDelta" 
+        | Statistics:
+        | Population: 
+        span id="evalPopulation" 
+        | Net Migration: 
+        span id="evalMigration" 
+        | Assessed Value: 
+        span id="evalValue" 
+        | Category: 
+        span id="evalClass" 
+        | Game Level: 
+        span id="evalLevel" 
+        | Score: 
+        span id="evalScore" 
+        | Annual change: 
+        span id="evalScoreDelta" 
       
-      div class="right" 
+      .right 
         form id="evalForm" 
         input type="submit" id="evalOK" class="rightButtons" value="OK" 
-        
-      
-      div class="clr" 
+      .clr 
     
     div class="hidden modal" id="disasterWindow" 
-      div id="disasterHeader" class="modalHeader" 
-         Disasters
+      div id="disasterHeader" class="modalHeader" Disasters
       
       form id="disasterForm" 
-          div id="disasterSelectContainer" 
-          label id="disasterLabel" for="disasterSelect" What disaster do you want to befall this unsuspecting world?
-          select id="disasterSelect" 
-            option id="disasterNone" value="None" None
-            option id="disasterMonster" value="Monster" Monster
-            option id="disasterFire" value="None" Fire
-            option id="disasterFlood" value="Flood" Flood
-            option id="disasterCrash" value="Crash" Crash
-            option id="disasterMeltdown" value="Meltdown" Meltdown
-            option id="disasterTornado" value="Tornado" Tornado
-          
+        div id="disasterSelectContainer" 
+        label id="disasterLabel" for="disasterSelect" What disaster do you want to befall this unsuspecting world?
+        select id="disasterSelect" 
+          option id="disasterNone" value="None" None
+          option id="disasterMonster" value="Monster" Monster
+          option id="disasterFire" value="None" Fire
+          option id="disasterFlood" value="Flood" Flood
+          option id="disasterCrash" value="Crash" Crash
+          option id="disasterMeltdown" value="Meltdown" Meltdown
+          option id="disasterTornado" value="Tornado" Tornado
         
-        div id="disasterButtons" class="right" 
-          button id="disasterCancel" class="rightButtons" Cancel
-          input type="submit" id="disasterOK" class="rightButtons" value="OK" 
-        
-        div class="clr" 
       
+      div.right id="disasterButtons"
+        button id="disasterCancel" class="rightButtons" Cancel
+        input type="submit" id="disasterOK" class="rightButtons" value="OK" 
+      .clr
     
   
 
