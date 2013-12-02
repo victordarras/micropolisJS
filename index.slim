@@ -1,0 +1,277 @@
+DOCTYPE 5 
+
+!--
+ * micropolisJS. Adapted from Micropolis by Graeme McCutcheon.
+ *
+ * This code is released under the GNU GPL v3, with some additional terms.
+ * Please see the files LICENSE and COPYING for details. Alternatively,
+ * consult http://micropolisjs.graememcc.co.uk/LICENSE and
+ * http://micropolisjs.graememcc.co.uk/COPYING
+ *
+ * -- 
+
+html 
+  head 
+    meta charset="utf-8" 
+    script src="thirdparty/jquery/jquery-2.0.3.min.js" 
+    script src="js/polyfills.js" 
+    script data-main="js/Main.js" src="thirdparty/requirejs/require.js" 
+    link rel="stylesheet" media="screen" type="text/css" href="css/style.css" 
+    title micropolisJS
+  body 
+    div class="hidden" id="opaque" 
+    div id='header' 
+      h1 id="title" micropolisJS
+      div class="links" 
+        a href="about.html" About | a href="participate.html" Get Involved
+      
+    
+    div id="container" 
+      div id="infobar" class="canvasWidth table initialHidden" 
+        div class="col info initialHidden" 
+          span id="date" Jan 1900
+        
+        div class="col info initialHidden" 
+          $span id="funds" 20000
+        
+        div class="col info initialHidden" 
+          Score: span id="score" 0
+        
+        div class="col info initialHidden" 
+          span id="cclass" VILLAGE
+          (
+          span id="population" 0
+          )
+        
+      
+      div class="splashWidth" id="splashContainer" 
+         div id="SplashCanvas" 
+           Loading...
+         
+          div class="awaitGeneration" id="splashButtons" 
+           button class="splashButton" id="splashGenerate" Generate new map
+           button class="splashButton" id="splashPlay" Play this map
+         
+         fieldset class="awaitGeneration" id="difficulties" 
+           legend Difficulty           
+           label Easy
+            input type="radio" name="difficulty" value="0" checked="checked" 
+           
+           label Medium
+            input type="radio" name="difficulty" value="1" 
+           
+           label Hard
+            input type="radio" name="difficulty" value="2" 
+           
+         
+      
+      div id="canvasContainer" 
+        div id="MicropolisCanvas" 
+        
+      
+      div id="toolInfo" class="initialHidden canvasWidth" span id="toolOutput" &nbsp;
+      div id="notifications" class="initialHidden canvasWidth" 
+      div id="buttons" class="canvasWidth initialHidden" 
+        div id="row1" class="row" 
+          button id="residentialButton" data-size="3" data-tool="residential" data-colour="lime" class="toolButton row unselected initialHidden" Residential $100
+          button id="policeButton" data-size="3" data-tool="police" data-colour="darkblue" class="toolButton row unselected initialHidden" Police $500
+          button id="coalButton" data-size="4" data-tool="coal" data-colour="gray" class="toolButton row unselected initialHidden" Coal $3000
+          button id="wireButton" data-size="1" data-tool="wire" data-colour="khaki" class="toolButton row unselected initialHidden" Wire $5
+        
+        div id="row2" class="row" 
+          button id="commercialButton" data-size="3" data-tool="commercial" data-colour="blue" class="toolButton row unselected initialHidden" Commercial $100
+          button id="fireButton" data-size="3" data-tool="fire" data-colour="red" class="toolButton row unselected initialHidden" Fire $500
+          button id="nuclearButton" data-size="4" data-tool="nuclear" data-colour="mistyrose" class="toolButton row unselected initialHidden" Nuclear $5000
+          button id="roadButton" data-size="1" data-tool="road" data-colour="black" class="toolButton row unselected initialHidden" Road $10
+        
+        div id="row3" class="row" 
+          button id="industrialButton" data-size="3" data-tool="industrial" data-colour="yellow" class="toolButton row unselected initialHidden" Industrial $100
+          button id="portButton" data-size="4" data-tool="port" data-colour="dodgerblue" class="toolButton row unselected initialHidden" Port $3000
+          button id="stadiumButton" data-size="4" data-tool="stadium" data-colour="indigo" class="toolButton row unselected initialHidden" Stadium $5000
+          button id="railButton" data-size="1" data-tool="rail" data-colour="brown" class="toolButton row unselected initialHidden" Rail $20
+        
+        div id="row4" class="row" 
+          button id="parkButton" data-size="1" data-tool="park" data-colour="darkgreen" class="toolButton row unselected initialHidden" Park $10
+          button id="airportButton" data-size="6" data-tool="airport" data-colour="violet" class="toolButton row unselected initialHidden" Airport $10000
+          button id="queryButton" data-size="1" data-tool="query" data-colour="cyan" class="toolButton row unselected initialHidden" Query
+          button id="bulldozerButton" data-size="1" data-tool="bulldozer" data-colour="salmon" class="toolButton row unselected initialHidden" Bulldozer $1
+        
+      
+      div id="miscControls" class="initialHidden" 
+        div id="RCIContainer" class="left" 
+        div id="miscButtons" class="right" 
+          div class="table" 
+            div class="row" 
+              button id="budgetRequest" class="miscButton" Budget
+            
+            div class="row" 
+              button id="evalRequest" class="miscButton" Evaluation
+            
+            div class="row" 
+              button id="disasterRequest" class="miscButton" Disasters
+            
+            div class="row" 
+              button id="pauseRequest" class="miscButton" Pause
+            
+          
+        
+        div class="clr" 
+      
+    
+    div class="hidden modal" id="budget" 
+      div id="budgetHeader" class="modalHeader" 
+         Budget
+      
+      form id="budgetForm" 
+        div 
+          div id="taxInfo" class="left" Tax Collected: span id="taxesCollected" 
+          fieldset class="right" 
+            legend Roads
+            input type="range" id="roadRate" min="0" max="100" step="1" data-source="roadFund" 
+            div 
+              label for="roadRate" id="roadRateLabel" 100% of $100 = $100
+            
+          
+        
+        div class="clr" 
+        div 
+          div id="cashInfo" class="left" Cashflow: span id="cashFlow" 
+          fieldset class="right" 
+            legend Fire
+            input type="range" id="fireRate" min="0" max="100" step="1" data-source="fireFund" 
+            div 
+              label for="fireRate" id="fireRateLabel" 100% of $100 = $100
+            
+          
+        
+        div class="clr" 
+        div 
+          div id="previousInfo" class="left" Previous funds: span id="previousFunds" 
+          fieldset class="right" 
+            legend Police
+            input type="range" id="policeRate" min="0" max="100" step="1" data-source="policeFund" 
+            div 
+              label for="policeRate" id="policeRateLabel" 100% of $100 = $100
+            
+          
+        
+        div class="clr" 
+        div 
+          div id="currentInfo" class="left" Current funds: span id="currentFunds" 
+          fieldset class="right" 
+            legend Tax
+            input type="range" id="taxRate" min="0" max="20" step="1" 
+            div 
+              label for="taxRate" id="taxRateLabel" 100% of $100 = $100
+            
+          
+        
+        div class="clr" 
+        div 
+          div id="leftButtons" class="left" 
+            button id="budgetReset" Reset
+          
+          div id="budgetRightButtons" class="right" 
+            button id="budgetCancel" class="rightButtons" Cancel
+            input type="submit" id="budgetOK" class="rightButtons" value="OK" 
+          
+          div class="clr" 
+        
+      
+    
+    div class="hidden modal" id="queryWindow" 
+      div id="queryHeader" class="modalHeader" 
+         Query
+      
+      div id="queryDebug" class="hidden" 
+        pre 
+        Tile: span id="queryTile" 
+        TileValue: span id="queryTileValue" 
+        Burnable: span id="queryTileBurnable" 
+        Bulldozable: span id="queryTileBulldozable" 
+        Conductive: span id="queryTileCond" 
+        Animated: span id="queryTileAnim" 
+        Powered: span id="queryTilePowered" 
+        FireStation: span id="queryFireStationRaw" 
+        FireStationEffect: span id="queryFireStationEffectRaw" 
+        PoliceStation: span id="queryPoliceStationRaw" 
+        PoliceStationEffect: span id="queryPoliceStationEffectRaw" 
+        TerrainDensity: span id="queryTerrainDensityRaw" 
+        ComRate: span id="queryComRateRaw" 
+        RateOfGrowth: span id="queryRateRaw" 
+        Pollution: span id="queryPollutionRaw" 
+        Crime: span id="queryCrimeRaw" 
+        LandValue: span id="queryLandValueRaw" 
+        Traffic Density: span id="queryTrafficDensityRaw" 
+        Density: span id="queryDensityRaw" 
+        
+      
+      pre 
+        Zone: span id="queryZoneType" 
+        Density: span id="queryDensity" 
+        Value: span id="queryLandValue" 
+        Crime: span id="queryCrime" 
+        Pollution: span id="queryPollution" 
+        Growth: span id="queryRate" 
+      
+      div class="right" 
+        form id="queryForm" 
+          input type="submit" id="queryOK" class="rightButtons" value="OK" 
+        
+      
+      div class="clr" 
+    
+    div class="hidden modal" id="evalWindow" 
+      div id="evalHeader" class="modalHeader" 
+         Evaluation
+      
+      pre 
+      Public opinion:
+        Is the mayor doing a good job?:
+          Yes: span id="evalYes"  No: span id="evalNo" 
+        What are the worst problems?
+          span id="evalProb1"  span id="evalProb2" 
+          span id="evalProb3"  span id="evalProb4" 
+
+      Statistics:
+        Population: span id="evalPopulation" 
+        Net Migration: span id="evalMigration" 
+        Assessed Value: span id="evalValue" 
+        Category: span id="evalClass" 
+        Game Level: span id="evalLevel" 
+        Score: span id="evalScore" 
+        Annual change: span id="evalScoreDelta" 
+      
+      div class="right" 
+        form id="evalForm" 
+        input type="submit" id="evalOK" class="rightButtons" value="OK" 
+        
+      
+      div class="clr" 
+    
+    div class="hidden modal" id="disasterWindow" 
+      div id="disasterHeader" class="modalHeader" 
+         Disasters
+      
+      form id="disasterForm" 
+          div id="disasterSelectContainer" 
+          label id="disasterLabel" for="disasterSelect" What disaster do you want to befall this unsuspecting world?
+          select id="disasterSelect" 
+            option id="disasterNone" value="None" None
+            option id="disasterMonster" value="Monster" Monster
+            option id="disasterFire" value="None" Fire
+            option id="disasterFlood" value="Flood" Flood
+            option id="disasterCrash" value="Crash" Crash
+            option id="disasterMeltdown" value="Meltdown" Meltdown
+            option id="disasterTornado" value="Tornado" Tornado
+          
+        
+        div id="disasterButtons" class="right" 
+          button id="disasterCancel" class="rightButtons" Cancel
+          input type="submit" id="disasterOK" class="rightButtons" value="OK" 
+        
+        div class="clr" 
+      
+    
+  
+

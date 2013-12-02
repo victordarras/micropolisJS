@@ -1,3 +1,5 @@
+/*###########*/
+
 .bad {
   background-color: red;
   color: yellow;
@@ -117,60 +119,301 @@
   border: none;
   color: white;
 }
+#buttons button {
+  width: 25%;
+  height: 3em;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.5em 0.8em;
+}
 #residentialButton {
-  background-color: lime;
+  background: lime;
+  background: linear-gradient(lime, #00cc00);
+  border: 1px solid #00b300;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#residentialButton:hover,
+#residentialButton:focus {
+  outline: none;
+  background: #1aff1a;
+}
+#residentialButton:active {
+  background: #00e600;
 }
 #policeButton {
-  background-color: darkblue;
+  background: darkblue;
+  background: linear-gradient(darkblue, #000058);
+  border: 1px solid #00003e;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#policeButton:hover,
+#policeButton:focus {
+  outline: none;
+  background: #0000a4;
+}
+#policeButton:active {
+  background: #000072;
 }
 #coalButton {
-  background-color: gray;
+  background: gray;
+  background: linear-gradient(gray, #666666);
+  border: 1px solid #5a5a5a;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#coalButton:hover,
+#coalButton:focus {
+  outline: none;
+  background: #8d8d8d;
+}
+#coalButton:active {
+  background: #737373;
 }
 #wireButton {
-  background-color: khaki;
+  background: khaki;
+  background: linear-gradient(khaki, #eadc5f);
+  border: 1px solid #e7d748;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#wireButton:hover,
+#wireButton:focus {
+  outline: none;
+  background: #f3eba3;
+}
+#wireButton:active {
+  background: #ede175;
 }
 #commercialButton {
-  background-color: blue;
+  background: blue;
+  background: linear-gradient(blue, #0000cc);
+  border: 1px solid #0000b3;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#commercialButton:hover,
+#commercialButton:focus {
+  outline: none;
+  background: #1a1aff;
+}
+#commercialButton:active {
+  background: #0000e6;
 }
 #fireButton {
-  background-color: red;
+  background: red;
+  background: linear-gradient(red, #cc0000);
+  border: 1px solid #b30000;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#fireButton:hover,
+#fireButton:focus {
+  outline: none;
+  background: #ff1a1a;
+}
+#fireButton:active {
+  background: #e60000;
 }
 #nuclearButton {
-  background-color: mistyrose;
+  background: mistyrose;
+  background: linear-gradient(mistyrose, #ffb6ae);
+  border: 1px solid #ff9f95;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#nuclearButton:hover,
+#nuclearButton:focus {
+  outline: none;
+  background: #fffbfb;
+}
+#nuclearButton:active {
+  background: #ffcdc7;
 }
 #roadButton {
-  background-color: black;
+  background: black;
+  background: linear-gradient(black, black);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#roadButton:hover,
+#roadButton:focus {
+  outline: none;
+  background: #0d0d0d;
+}
+#roadButton:active {
+  background: black;
 }
 #industrialButton {
-  background-color: yellow;
+  background: yellow;
+  background: linear-gradient(yellow, #cccc00);
+  border: 1px solid #b3b200;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#industrialButton:hover,
+#industrialButton:focus {
+  outline: none;
+  background: #ffff1a;
+}
+#industrialButton:active {
+  background: #e6e500;
 }
 #portButton {
-  background-color: dodgerblue;
+  background: dodgerblue;
+  background: linear-gradient(dodgerblue, #0077ea);
+  border: 1px solid #006ad1;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#portButton:hover,
+#portButton:focus {
+  outline: none;
+  background: #389dff;
+}
+#portButton:active {
+  background: #0483ff;
 }
 #stadiumButton {
-  background-color: indigo;
+  background: indigo;
+  background: linear-gradient(indigo, #2e004f);
+  border: 1px solid #1f0035;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#stadiumButton:hover,
+#stadiumButton:focus {
+  outline: none;
+  background: #5a009b;
+}
+#stadiumButton:active {
+  background: #3c0069;
 }
 #railButton {
-  background-color: brown;
+  background: brown;
+  background: linear-gradient(brown, #7c2020);
+  border: 1px solid #681a1a;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#railButton:hover,
+#railButton:focus {
+  outline: none;
+  background: #b92f2f;
+}
+#railButton:active {
+  background: #912525;
 }
 #parkButton {
-  background-color: darkgreen;
+  background: darkgreen;
+  background: linear-gradient(darkgreen, #003100);
+  border: 1px solid #001800;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
   color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#parkButton:hover,
+#parkButton:focus {
+  outline: none;
+  background: #007e00;
+}
+#parkButton:active {
+  background: #004a00;
 }
 #airportButton {
-  background-color: violet;
+  background: violet;
+  background: linear-gradient(violet, #e855e8);
+  border: 1px solid #e53fe5;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#airportButton:hover,
+#airportButton:focus {
+  outline: none;
+  background: #f198f1;
+}
+#airportButton:active {
+  background: #eb6ceb;
 }
 #queryButton {
-  background-color: cyan;
+  background: aqua;
+  background: linear-gradient(aqua, #00cccc);
+  border: 1px solid #00b2b3;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#queryButton:hover,
+#queryButton:focus {
+  outline: none;
+  background: #1affff;
+}
+#queryButton:active {
+  background: #00e5e6;
 }
 #bulldozerButton {
-  background-color: salmon;
+  background: salmon;
+  background: linear-gradient(salmon, #f85441);
+  border: 1px solid #f73d28;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#bulldozerButton:hover,
+#bulldozerButton:focus {
+  outline: none;
+  background: #fb968b;
+}
+#bulldozerButton:active {
+  background: #f96a59;
 }
 #buttons {
   display: table;
@@ -184,7 +427,6 @@
 #evalHeader {
   background-color: forestgreen;
   border: none;
-  color: white;
 }
 #queryHeader {
   background-color: cyan;
@@ -252,11 +494,40 @@
   text-align: centre;
 }
 #splashGenerate {
-  background-color: dodgerBlue;
-  color: #ffffff;
+  background: #448cc0;
+  background: linear-gradient(#448cc0, #35719c);
+  border: 1px solid #2e6389;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#splashGenerate:hover,
+#splashGenerate:focus {
+  outline: none;
+  background: #5798c6;
+}
+#splashGenerate:active {
+  background: #3b7faf;
 }
 #splashPlay {
-  background-color: lightgreen;
+  background: #3fc85b;
+  background: linear-gradient(#3fc85b, #2fa547);
+  border: 1px solid #2a913f;
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+#splashPlay:hover,
+#splashPlay:focus {
+  outline: none;
+  background: #53ce6c;
+}
+#splashPlay:active {
+  background: #35b950;
 }
 #splashButtons {
   width: 250px;
@@ -264,6 +535,27 @@
 }
 #difficulties {
   margin-top: 10px;
+  border: 1px solid #cccccc;
+  background: white;
+  padding: 2em 2em 2em;
+}
+#difficulties label {
+  display: block;
+  position: relative;
+  padding: 0.5em 1em;
+  margin: 0;
+  background: #eeeeee;
+  border: 1px solid #cccccc;
+  margin-bottom: -1px;
+}
+#difficulties input[type="radio"] {
+  text-align: right;
+  position: absolute;
+  right: 0.4em;
+  top: 0.4em;
+}
+#difficulties input[type='radio']:checked {
+  background: blue;
 }
 #RCIContainer {
   width: 140px;
@@ -277,6 +569,7 @@
   text-align: center;
 }
 /*##############################################################*/
+
 * {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -289,7 +582,9 @@ html {
 }
 body {
   background: #f2f2f2;
-  color: #333;
+  background-image: url(http://1.bp.blogspot.com/-xYZb1ZWZ9zU/T7mtRXTEvKI/AAAAAAAAAFg/UIRrh2rK5h4/s1600/simcity_snes-art-of-sound.jpg);
+  background-size: cover;
+  color: #333333;
   font-family: 'Lato', Arial, sans-serif;
   font-size: 14px;
   margin: 0;
@@ -308,8 +603,7 @@ a {
   max-width: 800px;
 }
 #header {
-  border-bottom: 1px solid #ddd
-  ;
+  border-bottom: 1px solid #dddddd;
   color: #448cc0;
   margin: auto;
   margin-bottom: 1em;
@@ -319,10 +613,10 @@ a {
   width: 100%;
 }
 #infobar {
-  background: #fff;
+  background: white;
   border: 1px solid #e5e5e5;
   border-radius: 1em;
-  border-top: 1px solid  #d5d5d5;
+  border-top: 1px solid #d5d5d5;
   padding: 0.4em 0.8em;
 }
 #notifications {
@@ -337,7 +631,7 @@ a {
   text-align: left;
 }
 #appeal {
-  background: #fff;
+  background: white;
   border-bottom-width: 3px;
   border-color: #3fc85b;
   border-radius: 3px;
@@ -348,10 +642,4 @@ a {
 }
 #appeal h2 {
   color: #3fc85b;
-}
-#buttons button {
-  border: 0;
-  border-radius: 2px;
-  margin-bottom: 5px;
-  padding: 0.5em 0.8em;
 }

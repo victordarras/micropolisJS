@@ -1,3 +1,9 @@
+@green: #3fc85b;
+@blue: #448cc0;
+@yellow: #ffd65a;
+
+/*###########*/
+
 .bad {
   background-color: red;
   color: yellow;
@@ -141,75 +147,82 @@
   color: white;
 }
 // All inGame buttons
+
+
+
+#buttons button {
+  width: 25%;
+  height: 3em;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.5em 0.8em;
+}
+
+
 #residentialButton {
-  background-color: lime;
+  .button(lime);
 }
 
 #policeButton {
-  background-color: darkblue;
-  color: white;
+  .button(darkblue);
 }
 
 #coalButton {
-  background-color: gray;
+  .button(gray);
 }
 
 #wireButton {
-  background-color: khaki;
+  .button(khaki);
 }
 
 #commercialButton {
-  background-color: blue;
-  color: white;
+  .button(blue);
 }
 
 #fireButton {
-  background-color: red;
+  .button(red);
 }
 
 #nuclearButton {
-  background-color: mistyrose;
+  .button(mistyrose);
 }
 
 #roadButton {
-  background-color: black;
-  color: white;
+  .button(black);
 }
 
 #industrialButton {
-  background-color: yellow;
+  .button(yellow);
 }
 
 #portButton {
- background-color: dodgerblue;
+ .button(dodgerblue);
  color: white;
 }
 
 #stadiumButton {
-  background-color: indigo;
-  color: white;
+  .button(indigo);
 }
 
 #railButton {
-  background-color: brown;
-  color: white;
+  .button(brown);
 }
 
 #parkButton {
-  background-color: darkgreen;
-  color: white;
+  .button(darkgreen);
 }
 
 #airportButton {
-  background-color: violet;
+  .button(violet);
 }
 
 #queryButton {
-  background-color: cyan;
+  .button(cyan);
 }
 
 #bulldozerButton {
-  background-color: salmon;
+  .button(salmon);  
 }
 
 #buttons {
@@ -224,7 +237,6 @@
 #evalRequest, #evalHeader {
   background-color: forestgreen;
   border: none;
-  color: white;
 }
 
 #queryHeader {
@@ -305,13 +317,31 @@
   text-align: centre;
 }
 
-#splashGenerate {
-  background-color: dodgerBlue;
-  color: white
+.button(@color){
+  background: @color;
+  background: linear-gradient(@color,darken(@color,10));
+  border: 1px solid darken(@color,15);
+  border-radius: 3px;
+  padding: 6px 12px;
+  width: auto;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  //transition: all 0.2s;
+  &:hover, &:focus {
+    outline: none;
+    background: lighten(@color,5);
+  }
+  &:active {
+    background: darken(@color,5);
+  }
+}
+
+#splashGenerate {  
+  .button(@blue)
 }
 
 #splashPlay {
-  background-color: lightgreen;
+  .button(@green)
 }
 
 #splashButtons {
@@ -321,6 +351,27 @@
 
 #difficulties {
   margin-top: 10px;
+  border: 1px solid #CCC;
+  background: #FFF;
+  padding: 2em 2em 2em;
+  label {        
+    display: block;
+    position: relative;
+    padding: 0.5em 1em;
+    margin: 0;
+    background: #eee;
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+  }
+  input[type="radio"] {    
+    text-align: right;
+    position: absolute;
+    right: 0.4em;
+    top: 0.4em;
+  }
+  input[type='radio']:checked {
+    background: blue;
+  }
 }
 
 #RCIContainer {
@@ -338,12 +389,6 @@
 
 /*##############################################################*/
 
-
-@green: #3fc85b;
-@blue: #448cc0;
-@yellow: #ffd65a;
-
-
 * {  
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -358,6 +403,8 @@ html {
 
 body {
   background: #f2f2f2;
+  background-image: url(http://1.bp.blogspot.com/-xYZb1ZWZ9zU/T7mtRXTEvKI/AAAAAAAAAFg/UIRrh2rK5h4/s1600/simcity_snes-art-of-sound.jpg);
+  background-size: cover;
   color: #333;
   font-family: 'Lato', Arial, sans-serif;
   font-size: 14px;
@@ -425,11 +472,3 @@ a {
     color: @green;
   }
 }
-
-#buttons button {
-  border: 0;
-  border-radius: 2px;
-  margin-bottom: 5px;
-  padding: 0.5em 0.8em;
-}
-
