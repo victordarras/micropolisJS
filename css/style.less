@@ -21,10 +21,9 @@ html {
 
 body {
   background: @backgroundColor;
-  //background-image: url(http://1.bp.blogspot.com/-xYZb1ZWZ9zU/T7mtRXTEvKI/AAAAAAAAAFg/UIRrh2rK5h4/s1600/simcity_snes-art-of-sound.jpg);
   background-size: cover;
   color: #eee;
-  font-family: 'Lato', Arial, sans-serif;
+  font-family: 'Open sans', Arial, sans-serif;
   font-size: 14px;
   margin: 0;
 }
@@ -45,8 +44,8 @@ hr {
   margin-top: 2em;  
   float: right;
   a {
-    .button(@backgroundColor);
-    color: #777;
+    .button(lighten(@backgroundColor, 10));
+    color: #aaa;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.9);
     margin: 0.1em;
     padding: 0.4em 0.9em;
@@ -111,7 +110,7 @@ hr {
 
 #title {
   float: left;
-  font-family: 'consolas';
+  font-family: 'Source Code Pro','Consolas', sans-serif;
 }
 
 #appeal {
@@ -151,7 +150,7 @@ hr {
     opacity: 0;
   }
   input[type='radio']:checked + label {
-    .button(#111);
+    .button(@blue);
   }
 }
 
@@ -161,6 +160,7 @@ hr {
   margin: 1em auto;
   text-align: centre;
   .splashButton {
+    font-size: 1em;
     width: 174px;
     margin: 0.5em;
   }
